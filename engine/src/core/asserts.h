@@ -13,7 +13,7 @@
 #define debugBreak() __builtin_trap()
 #endif
 
-BBAPI void report_assertion_failure(const char* expression, const char* message, const char* file, i32 line);
+BBAPI void report_assertion_failure(const char *expression, const char *message, const char *file, i32 line);
 
 #define BBASSERT(expr)                                               \
     {                                                                \

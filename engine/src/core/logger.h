@@ -24,7 +24,7 @@ typedef enum log_level {
 b8 initialise_logging();
 void shutdown_logging();
 
-BBAPI void log_output(log_level level, const char* message, ...);
+BBAPI void log_output(log_level level, const char *message, ...);
 
 // Logs a fatal level message
 #define BBFATAL(message, ...) log_output(LOG_LEVEL_FATAL, message, ##__VA_ARGS__)
