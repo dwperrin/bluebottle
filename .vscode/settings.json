@@ -29,6 +29,7 @@
     "C_Cpp.clang_format_fallbackStyle": "Google",
     "files.associations": {
         "*.cs": "csharp",
-        "platform.h": "c"
+        "platform.h": "c",
+        "array": "cpp"
     },
 }
