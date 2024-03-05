@@ -27,4 +27,8 @@
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "C_Cpp.clang_format_fallbackStyle": "Google",
+    "files.associations": {
+        "*.cs": "csharp",
+        "platform.h": "c"
+    },
 }
