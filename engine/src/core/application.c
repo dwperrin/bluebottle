@@ -2,6 +2,7 @@
 
 #include "games_types.h"
 #include "logger.h"
+#include "core/bb_memory.h"
 #include "platform/platform.h"
 
 typedef struct application_state {
@@ -63,6 +64,8 @@ b8 application_create(game *game_inst) {
 }
 
 b8 application_run() {
+    BBINFO(get_memory_usage_str());
+
     while (app_state.is_running) {
         if (!platform_pump_messages(&app_state.platform)) {
             app_state.is_running = FALSE;

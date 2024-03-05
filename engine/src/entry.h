@@ -1,6 +1,7 @@
 #pragma once
 
 #include "core/application.h"
+#include "core/bb_memory.h"
 #include "core/logger.h"
 #include "games_types.h"
 
@@ -12,6 +13,9 @@ extern b8 create_game(game *out_game);
  */
 
 int main(void) {
+
+    initialise_memory();
+
     // Request the game instance from the appication.
     game game_inst;
     if (!create_game(&game_inst)) {
@@ -36,6 +40,8 @@ int main(void) {
         BBINFO("Application did not shutdown gracefully.");
         return 2;
     }
+
+    shutdown_memory();
 
     return 0;
 }

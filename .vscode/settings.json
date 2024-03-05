@@ -24,8 +24,8 @@
         "isWholeLine": false,
     },
     "editor.defaultFormatter": "ms-vscode.cpptools",
-    "editor.formatOnPaste": true,
-    "editor.formatOnSave": true,
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
     "C_Cpp.clang_format_fallbackStyle": "Google",
     "files.associations": {
         "*.cs": "csharp",
