@@ -17,8 +17,8 @@ enum {
     DARRAY_FIELD_LENGTH
 };
 
-BBAPI void* _darrary_create(u64 length, u64 stride);
-BBAPI void _darrry_destory(void *array);
+BBAPI void* _darray_create(u64 length, u64 stride);
+BBAPI void _darray_destory(void *array);
 
 BBAPI u64 _darray_field_get(void *array, u64 field);
 BBAPI void _darray_field_set(void *array, u64 field, u64 value);
@@ -37,10 +37,10 @@ BBAPI void* _darray_insert_at(void *array, u64 index, void* value_ptr);
 #define darray_create(type) \
     _darray_create(DARRAY_DEFAULT_CAPACITY, sizeof(type))
 
-#define darrary_reserve(type, capacity) \
-    _darrary_create(capacity, sizeof(type))
+#define darray_reserve(type, capacity) \
+    _darray_create(capacity, sizeof(type))
 
-#define darray_destroy(array) _darrry_destory(array);
+#define darray_destroy(array) _darray_destory(array);
 
 #define darray_push(array, value)               \
     {                                           \
