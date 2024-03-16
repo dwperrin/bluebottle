@@ -1,5 +1,3 @@
-#include "defines.h"
-
 #include "containers/darray.h"
 #include "core/bb_memory.h"
 #include "core/logger.h"
@@ -53,9 +51,7 @@ void* _darray_push(void* array, const void *value_ptr) {
     u64 addr = (u64)array;
     addr +=  (length * stride);
     bb_copy_memory((void*)addr, value_ptr, stride);
-    if (length >= darray_capacity(array)) {
-        array = _darray_resize(array);
-    }
+    _darray_field_set(array, DARRAY_LENGTH, length + 1);
     return array;
 }
 
