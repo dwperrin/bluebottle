@@ -1,6 +1,6 @@
 #include "vulkan_backend.h"
 #include "vulkan_platform.h"
-
+#include "vulkan_device.h"
 #include "vulkan_types.inl"
 
 #include "core/logger.h"
@@ -120,6 +120,21 @@ b8 vulkan_renderer_backend_initalise(renderer_backend* backend, const char* appl
     VK_CHECK(func(context.instance, &debug_create_info, context.allocator, &context.debug_messenger));
     BBDEBUG("Vulkan debugger created.");
 #endif
+
+    // Surface
+    BBDEBUG("Creating Vulkan surface...");
+    if (!platform_create_vulkan_surface(plat_state, &context)) {
+        BBERROR("Failed to create platform surface!");
+        return FALSE;
+    }
+    BBDEBUG("Vulkan surface created.");
+
+    //Device Creation
+    if (!vulkan_device_create(&context)) {
+        BBERROR("Failed to create device!");
+        return FALSE;
+    }
+
     BBINFO("Vulkan renderer initialised successfully");
     return TRUE;
 }
