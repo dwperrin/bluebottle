@@ -76,7 +76,7 @@ b8 vulkan_renderer_backend_initalise(renderer_backend* backend, const char* appl
         BBINFO("Searching for layer: %s...", requried_validation_layer_names[i]);
         b8 found = FALSE;
         for (u32 j = 0; j < available_layer_count; ++j) {
-            if (string_equal(requried_validation_layer_names[i], available_layers[j].layerName)) {
+            if (strings_equal(requried_validation_layer_names[i], available_layers[j].layerName)) {
                 found = TRUE;
                 BBINFO("Found.");
                 break;
