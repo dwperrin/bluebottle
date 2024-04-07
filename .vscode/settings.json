@@ -30,6 +30,7 @@
     "files.associations": {
         "*.cs": "csharp",
         "platform.h": "c",
-        "array": "cpp"
+        "array": "cpp",
+        "vulkan_types.inl": "c"
     },
 }

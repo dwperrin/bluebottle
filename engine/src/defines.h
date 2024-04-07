@@ -100,3 +100,6 @@ STATIC_ASSERT(sizeof(b8) == 1, "Expected to be 1 byte.");
 #define BBAPI
 #endif
 #endif
+
+
+#define BBCLAMP(value, min, max) (value <= min) ? min : (value >= max) ? max : value;
