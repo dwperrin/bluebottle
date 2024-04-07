@@ -4,6 +4,7 @@
 #include "vulkan_platform.h"
 #include "vulkan_device.h"
 #include "vulkan_swapchain.h"
+#include "vulkan_renderpass.h"
 
 #include "core/logger.h"
 #include "core/bb_string.h"
@@ -150,14 +151,28 @@ b8 vulkan_renderer_backend_initalise(renderer_backend* backend, const char* appl
         &context.swapchain
     );
 
+    // Renderpass
+    vulkan_renderpass_create(
+        &context,
+        &context.main_renderpass,
+        0, 0, context.framebuffer_width, context.framebuffer_height,
+        0.0f, 0.0f, 0.2f, 1.0f,
+        1.0f,
+        0);
+
+
     BBINFO("Vulkan renderer initialised successfully.");
     return TRUE;
 }
 
-    void vulkan_renderer_backend_shutdown(renderer_backend* backend) {
+void vulkan_renderer_backend_shutdown(renderer_backend* backend) {
     // Destory in the opposite order of creation
 
-    //Swapchain
+    // Renderpass
+    BBDEBUG("Destroying Vulkan renderpass...");
+    vulkan_renderpasss_destroy(&context, &context.main_renderpass);
+
+    // Swapchain
     BBDEBUG("Destroying Vulkan swapchain...");
     vulkan_swapchain_destroy(&context, &context.swapchain);
 
