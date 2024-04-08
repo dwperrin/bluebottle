@@ -135,12 +135,12 @@ void vulkan_renderpass_begin(
     begin_info.clearValueCount = 2;
     begin_info.pClearValues = clear_values;
 
-    vkCmdBeginRenderPass(command_buffer->hande, &begin_info, VK_SUBPASS_CONTENTS_INLINE);
-    command_buffer->state = COMMAND_BUFFER_STAATE_IN_RENDER_PASS;
+    vkCmdBeginRenderPass(command_buffer->handle, &begin_info, VK_SUBPASS_CONTENTS_INLINE);
+    command_buffer->state = COMMAND_BUFFER_STATE_IN_RENDER_PASS;
 
 }
 
 void vulkan_renderpasss_end(vulkan_command_buffer* command_buffer, vulkan_renderpass* renderpass) {
-    vkCmdEndRenderPass(command_buffer->hande);
-    command_buffer->state = COMMAND_BUFFER_STAATE_RECORDING;
+    vkCmdEndRenderPass(command_buffer->handle);
+    command_buffer->state = COMMAND_BUFFER_STATE_RECORDING;
 }
